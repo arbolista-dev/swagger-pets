@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  web:
+    command: bash -c "npm run build && npm run serve"
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - "8080:8080"
+    links:
+    - database
+
+  database:
+    image: postgres
+    environment:
+     DB_PASSWORD: password
+     DB_NAME: cool_climate_main

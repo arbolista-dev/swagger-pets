@@ -1,0 +1,5 @@
+{
+  "database": {
+    "pool": {"min": 1, "max": 1}
+  }
+}

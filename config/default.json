@@ -1,0 +1,63 @@
+{
+    "database": {
+        "pool": {"min": 10, "max": 50}
+    },
+    "env": "development",
+    "logging": {
+        "level": "debug",
+        "loggly": {
+            "enabled": false,
+            "subdomain": "icracked",
+            "token": "8e3e5c53-701e-4bd1-a0ed-37f1be0d3a3a",
+            "json": true,
+            "tags": []
+        }
+    },
+    "port": 3002,
+    "swagger": {
+        "fittingsDirs": [],
+        "defaultPipe": null,
+        "swaggerControllerPipe": "swagger_controllers",
+        "bagpipes": {
+            "_router": {
+                "name": "swagger_router",
+                "mockMode": false,
+                "mockControllersDirs": [
+                    "api/mocks"
+                ],
+                "controllersDirs": [
+                    "api/controllers"
+                ]
+            },
+            "_swagger_validate": {
+                "name": "swagger_validator",
+                "validateResponse": true
+            },
+            "swagger_controllers": [
+                {
+                    "onError": "json_error_handler"
+                },
+                "cors",
+                "swagger_security",
+                "_swagger_validate",
+                "express_compatibility",
+                "_router"
+            ],
+            "swagger_raw": {
+                "name": "swagger_raw"
+            }
+        }
+    },
+    "cors-origin": [
+        "127.0.0.1",
+        "localhost",
+        "chrome-extension://"
+    ],
+    "experiments": {
+        "experiment_json_url": "https://cdn.optimizely.com/json/8019936249.json",
+        "default_experiments": [
+            "broken_screen_price",
+            "credit_card_form"
+        ]
+    }
+}
